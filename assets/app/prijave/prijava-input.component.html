@@ -1,0 +1,38 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div  class="form-group leviDiv">
+        <label for="ime">Ime*</label>
+        <input type="text" id="ime" class="form-control" formControlName="ime" [ngModel]="prijava?.ime">
+    </div>
+    <div  class="form-group desniDiv">
+        <label  for="prezime">Prezime*</label>
+        <input type="text" id="prezime" class="form-control" formControlName="prezime" [ngModel]="prijava?.prezime">
+    </div>
+    <div  class="form-group leviDiv">
+        <label  for="mejl">Mejl*</label>
+        <input type="email" id="mejl" class="form-control" formControlName="mejl" [ngModel]="prijava?.mejl">
+    </div>
+    <div  class="form-group desniDiv">
+        <label  for="telefon">Telefon</label>
+        <input type="text" id="telefon" class="form-control" formControlName="telefon" [ngModel]="prijava?.telefon">
+    </div>
+    <div  class="form-group leviDiv">
+        <label for="linkedin">LinkedIn</label>
+        <input type="text" id="linkedin" class="form-control" formControlName="linkedin" [ngModel]="prijava?.linkedin">
+    </div>
+    <div  class="form-group desniDiv">
+        <label  for="portfolio">Portfolio</label>
+        
+        <input type="text" id="portfolio" class="form-control" formControlName="portfolio" [ngModel]="prijava?.portfolio">
+    </div>
+    <div class="form-group" class="cvDiv">
+        <label  for="linkCV">Link do tvog CV-a*</label>
+        <p for="linkCV" class="DesnaLabela">OKAČI NEGDE, NPR. DROPBOX</p>
+        <input type="text" id="linkCV" class="form-control" formControlName="linkCV" [ngModel]="prijava?.linkCV">
+    </div>
+    <div class="form-group" class="porukaDiv">
+        <label  for="poruka" class="cvDiv">Propratna poruka</label>
+        <textarea rows="6" id="poruka" class="form-control" formControlName="poruka" [ngModel]="prijava?.poruka"></textarea>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="!myForm.valid">Prijavi se na oglas</button>
+
+</form>

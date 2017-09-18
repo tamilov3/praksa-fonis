@@ -1,0 +1,47 @@
+<div class="col-md-8 col-md-offset-2 klasa">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group levo">
+            <label for="naziv">Naziv</label>
+            <input type="text" id="naziv" class="form-control" formControlName="naziv" [ngModel]="praksa?.naziv">
+        </div>
+        <div class="form-group desno">
+            <label for="kompanija">Kompanija</label>
+            <input type="text" id="kompanija" class="form-control" formControlName="kompanija" [ngModel]="praksa?.kompanija">
+        </div>
+        <div class="form-group levo">
+            <label for="pozicija">Pozicija</label>
+            <input type="text" id="pozicija" class="form-control" formControlName="pozicija" [ngModel]="praksa?.pozicija">
+        </div>
+        <div class="form-group desno">
+            <label for="kategorija">Kategorija</label>
+            <select class="form-control" id="kategorija" formControlName="kategorija" [ngModel]="praksa?.kategorija">
+                <option *ngFor="let kategorija of kategorijas" value="{{kategorija.naziv}}" style="text-transform: uppercase;"> {{kategorija.naziv}}</option>
+            </select>
+        </div>
+        <div class="form-group tagovi">
+            <label for="tagovi">Tagovi</label>
+            <input type="text" id="tagovi" class="form-control" formControlName="tagovi" [ngModel]="praksa?.tagovi">
+        </div>
+        <div *ngIf="jeTehnologija()">
+            <div class="form-group potkategorija" *ngFor="let checkbox of checkboxes">
+                <label for="checkboxes" class="control-label labela">
+                <input value="{{checkbox.value}}" 
+                type="checkbox" id="checkboxes" class="form-control checkbox" 
+                formControlName="checkboxes"
+                [(ngModel)]="checkbox.checked"
+                >{{checkbox.value}}</label>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>        
+        <div class="form-group">
+            <label style=" float:left; display: block;width:100%; " for="opis">Opis posla</label>
+            <textarea rows="6" id="opis" class="form-control" formControlName="opis" [ngModel]="praksa?.opis"></textarea>
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="!myForm.valid">Save</button>
+        <button class="btn btn-danger" type="button" (click)="onClear(myForm)">Clear</button>
+
+    </form>
+</div>

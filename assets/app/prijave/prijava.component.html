@@ -1,0 +1,27 @@
+<article class="panel panel-default">
+        <div class="panel-heading" *ngIf="isLoggedIn()">
+            <h2> {{prijava.ime}} {{prijava.prezime}} </h2>
+            <h3 class="praksaNaziv">Prijava za: {{prijava.praksaNaziv}}</h3>
+            <a (click)="onDelete()" id="delete">Delete</a>
+        </div>
+        <div class="panel-body">
+            <label for="podaci">Lični podaci </label>
+            <div id="podaci">
+                <label for="mejl">Mejl: </label> {{prijava.mejl}}
+                <br>
+                <label for="telefon">Telefon: </label> {{prijava.telefon}}
+            </div>
+            <label for="linkedin">LinkedIn: </label>
+            <a href="{{prijava.linkedin}}" target="_blank">{{prijava.linkedin}}</a>
+            <br>
+            <label for="linkCV">Link do CV-a: </label>
+            <a href="{{prijava.linkCV}}" id="linkCV" name="linkCV" target="_blank">{{prijava.linkCV}}</a>
+            <br>
+            <label for="portfolio">Link do portfolija: </label>
+            <a href="{{prijava.portfolio}}" id="portfolio" name="portfolio" target="_blank">{{prijava.portfolio}}</a>
+            <br>
+            <label for="poruka">Propratna poruka: </label>
+            <p> {{ prijava.poruka }} </p>
+        </div>
+        
+    </article>

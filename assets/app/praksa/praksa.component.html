@@ -1,0 +1,27 @@
+<article class="panel panel-default">
+    <div class="panel-heading">
+        <h1> {{praksa.naziv}} </h1>
+        <h3 class="author">{{praksa.kompanija}}</h3>
+    </div>
+    <div class="panel-body">
+        <h4>Pozicija: {{praksa.pozicija}}</h4>
+        <p> {{ praksa.opis }} </p>
+    </div>
+    <footer class="panel-footer" style="height:55px">
+
+        <button type="button" class="btn btn-success" *ngIf="!isLoggedIn()" 
+        style="display: inline-block;" (click)="prijavioSe=!prijavioSe">Prijavi se</button>
+        <div class="config" *ngIf="isLoggedIn()">
+            <a (click)="onEdit()" id="edit" >Edit</a>
+            <a (click)="onDelete()" id="delete">Delete</a>
+        </div>
+    </footer>
+</article>
+<div *ngIf="prijavioSe">
+
+    <app-prijava-input></app-prijava-input>
+
+</div>
+<div>
+    <hr>
+</div>
