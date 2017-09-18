@@ -11,7 +11,7 @@ export class PotkategorijaService{
     private potkategorijas: Potkategorija[]=[];
     constructor(private http: Http,private errorService: ErrorService) {}
     getPotkategorije(){
-        return this.http.get('http://praksa-fonis.herokuapp.com/potkategorija')
+        return this.http.get('https://praksa-fonis.herokuapp.com/potkategorija')
         .map((response: Response) => {
             const potkategorijas = response.json().obj;
             let transformedPotkategorijas: Potkategorija[] = [];

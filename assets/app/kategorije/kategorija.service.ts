@@ -11,7 +11,7 @@ export class KategorijaService{
     private kategorijas: Kategorija[]=[];
     constructor(private http: Http,private errorService: ErrorService) {}
     getKategorije(){
-        return this.http.get('http://praksa-fonis.herokuapp.com/kategorija')
+        return this.http.get('https://praksa-fonis.herokuapp.com/kategorija')
         .map((response: Response) => {
             const kategorijas = response.json().obj;
             let transformedKategorijas: Kategorija[] = [];

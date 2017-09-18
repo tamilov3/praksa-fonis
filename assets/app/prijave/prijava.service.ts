@@ -12,7 +12,7 @@ export class PrijavaService{
     addPrijava(prijava:Prijava){
         const body = JSON.stringify(prijava);
         const headers = new Headers({'Content-type':'application/json'});
-        return this.http.post('http://praksa-fonis.herokuapp.com/prijava/'+prijava.praksaid, body, {headers:headers} )
+        return this.http.post('https://praksa-fonis.herokuapp.com/prijava/'+prijava.praksaid, body, {headers:headers} )
         .map((response:Response)=> {
             const result = response.json();
             const prijava = new Prijava(
@@ -35,7 +35,7 @@ export class PrijavaService{
     }
 
     getPrijave(){
-        return this.http.get('http://praksa-fonis.herokuapp.com/prijava')
+        return this.http.get('https://praksa-fonis.herokuapp.com/prijava')
         .map((response:Response)=>{
             const prijavas = response.json().obj;
             let transformedPrijavas: Prijava[] = [];
@@ -66,7 +66,7 @@ export class PrijavaService{
 
     deletePrijava(prijava:Prijava){
         this.prijavas.splice(this.prijavas.indexOf(prijava), 1);
-        return this.http.delete('http://praksa-fonis.herokuapp.com/prijava/'+prijava.prijavaid)
+        return this.http.delete('https://praksa-fonis.herokuapp.com/prijava/'+prijava.prijavaid)
         .map((response:Response)=> response.json())
         .catch((error:Response)=> Observable.throw(error.json()));
    

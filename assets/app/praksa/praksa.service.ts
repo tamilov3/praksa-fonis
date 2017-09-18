@@ -14,7 +14,7 @@ export class PraksaService{
     addPraksa(praksa:Praksa){
         const body = JSON.stringify(praksa);
         const headers = new Headers({'Content-type':'application/json'});
-        return this.http.post('http://praksa-fonis.herokuapp.com/praksa', body, {headers:headers} )
+        return this.http.post('https://praksa-fonis.herokuapp.com/praksa', body, {headers:headers} )
         .map((response:Response)=> {
             const result = response.json();
             const praksa =  new Praksa(result.obj.naziv, result.obj.kompanija, result.obj.opis, result.obj.pozicija, result.obj.kategorija, result.obj.tagovi, result.obj._id);
@@ -25,7 +25,7 @@ export class PraksaService{
     }
 
     getPraksas(){
-        return this.http.get('http://praksa-fonis.herokuapp.com/praksa')
+        return this.http.get('https://praksa-fonis.herokuapp.com/praksa')
         .map((response:Response)=>{
             const praksas = response.json().obj;
             let transformedPraksas: Praksa[] = [];
@@ -41,7 +41,7 @@ export class PraksaService{
 
     deletePraksa(praksa:Praksa){
         this.praksas.splice(this.praksas.indexOf(praksa), 1);
-        return this.http.delete('http://praksa-fonis.herokuapp.com/praksa/'+praksa.praksaid)
+        return this.http.delete('https://praksa-fonis.herokuapp.com/praksa/'+praksa.praksaid)
         .map((response:Response)=> response.json())
         .catch((error:Response)=> Observable.throw(error.json()));
     }
@@ -52,7 +52,7 @@ export class PraksaService{
     updatePraksa(praksa:Praksa){
         const body = JSON.stringify(praksa);
         const headers = new Headers({'Content-type':'application/json'});
-        return this.http.patch('http://praksa-fonis.herokuapp.com/praksa/'+praksa.praksaid, body, {headers:headers} )
+        return this.http.patch('https://praksa-fonis.herokuapp.com/praksa/'+praksa.praksaid, body, {headers:headers} )
         .map((response:Response)=> response.json())
         .catch((error:Response)=> Observable.throw(error.json()));
     }
